@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     myButton.addEventListener('click', function () {
         handleButtonClick();
     });
-
 });
 
 function fetchData(url) {
@@ -28,15 +27,15 @@ function fetchData(url) {
 
 function updateUIWithData(data) {
     const newsContainer = document.getElementById('newsContainer');
-    
+
     data.forEach(article => {
         const articleElement = document.createElement('div');
-        articleElement.classList.add('news-article'); 
+        articleElement.classList.add('news-article');
 
         articleElement.innerHTML = `
-            <h2>${article.title}</h2>
-            <p>${article.summary}</p>
-            <a href="${article.url}" target="_blank">Read more</a>
+            <h2 style="color: var(--almost-black); font-weight: 700;">${article.title}</h2>
+            <p style="color: var(--medium-gray);">${article.summary}</p>
+            <a href="${article.url}" target="_blank" style="color: var(--almost-black); font-weight: 700; text-decoration: none;">Read more</a>
         `;
         newsContainer.appendChild(articleElement);
     });
@@ -46,5 +45,4 @@ function handleButtonClick() {
     const body = document.body;
     body.classList.toggle('dark-mode');
 }
-
 
